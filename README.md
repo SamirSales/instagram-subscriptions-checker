@@ -19,3 +19,8 @@ This is an script in Python that helps to find out the subscriptions who is not 
 followersFile = open("followers_file.html", "r")
 followedsFile = open("subscriptions_file.html", "r")
 ```
+## License
+
+MIT
+
+Copyright &copy; 2018 Samir Sales
