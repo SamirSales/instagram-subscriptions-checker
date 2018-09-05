@@ -17,7 +17,7 @@ This is an script in Python that helps to find out the subscriptions who is not 
 
 ```python
 followersFile = open("followers_file.html", "r")
-followedsFile = open("subscriptions_file.html", "r")
+subscriptionsFile = open("subscriptions_file.html", "r")
 ```
 ## License
 
