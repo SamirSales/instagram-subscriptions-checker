@@ -18,20 +18,25 @@ class MyHTMLParser(HTMLParser):
         return self.users
 
 
-# getting followers
+def get_items_array1_absent_array2(array1, array2):
+    for item_arr_1 in array1:
+        if item_arr_1 not in array2:
+            print(item_arr_1)
+
+
 followersFile = open("followers_file.html", "r")
-parser = MyHTMLParser()
-parser.feed(followersFile.read())
-followers = parser.get_users()
+followersHtmlParser = MyHTMLParser()
+followersHtmlParser.feed(followersFile.read())
+followersArray = followersHtmlParser.get_users()
 
-# getting subscriptions
 subscriptionsFile = open("subscriptions_file.html", "r")
-parser2 = MyHTMLParser()
-parser2.feed(subscriptionsFile.read())
-subscriptions = parser2.get_users()
+subscriptionsHtmlParser = MyHTMLParser()
+subscriptionsHtmlParser.feed(subscriptionsFile.read())
+subscriptionsArray = subscriptionsHtmlParser.get_users()
 
-print("Subscriptions who do not follow you back...\n")
+print("Users who do not follow you back...\n")
+get_items_array1_absent_array2(subscriptionsArray, followersArray)
 
-for subs in subscriptions:
-    if subs not in followers:
-        print(subs)
+print("\n\n")
+print("Followers who you do not follow back...\n")
+get_items_array1_absent_array2(followersArray, subscriptionsArray)
